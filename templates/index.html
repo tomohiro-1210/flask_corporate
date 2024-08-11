@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto">
+    <h1>Template Extends Test</h1>
+
+    <!-- jinja2の変数。app.pyで定義した変数が格納されている。 -->
+    <p>{{user_name}}</p> 
+    <p>{{product_list}}</p> 
+    <p>{{product1}}</p> 
+    
+    <div class="bg-primary text-light">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet magni possimus dignissimos qui eum maxime quia molestiae atque, quis eos, voluptatibus deserunt pariatur rerum velit, asperiores totam officia voluptate vitae.
+    </div>
+  
+    <!-- テキスト -->
+    <p class="text-start">Start aligned text on all viewport sizes.</p>
+    <p class="text-center">Center aligned text on all viewport sizes.</p>
+    <p class="text-end">End aligned text on all viewport sizes.</p>
+    
+    <p class="text-sm-start">Start aligned text on viewports sized SM (small) or wider.</p>
+    <p class="text-md-start">Start aligned text on viewports sized MD (medium) or wider.</p>
+    <p class="text-lg-start">Start aligned text on viewports sized LG (large) or wider.</p>
+    <p class="text-xl-start">Start aligned text on viewports sized XL (extra-large) or wider.</p>
+
+    <!-- 余白の調整 -->
+    <div class="bg-primary text-light p-2 mb-5">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet magni possimus dignissimos qui eum maxime quia molestiae atque, quis eos, voluptatibus deserunt pariatur rerum velit, asperiores totam officia voluptate vitae.
+    </div>
+    <div class="bg-primary text-light p-2 mb-5">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet magni possimus dignissimos qui eum maxime quia molestiae atque, quis eos, voluptatibus deserunt pariatur rerum velit, asperiores totam officia voluptate vitae.
+    </div>
+    <div class="bg-primary text-light p-2 mb-5">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet magni possimus dignissimos qui eum maxime quia molestiae atque, quis eos, voluptatibus deserunt pariatur rerum velit, asperiores totam officia voluptate vitae.
+    </div>
+      <div class="bg-primary text-light p-2 mb-5">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet magni possimus dignissimos qui eum maxime quia molestiae atque, quis eos, voluptatibus deserunt pariatur rerum velit, asperiores totam officia voluptate vitae.
+      </div>
+
+      <!-- カラム -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 align-self-start">
+            One of three columns
+          </div>
+          <div class="col-lg-3 align-self-center">
+            One of three columns
+          </div>
+          <div class="col-lg-3 align-self-end">
+            One of three columns
+          </div>
+          <div class="col-lg-3 align-self-end">
+            One of three columns
+          </div>
+        </div>
+      </div>
+  </div>
+{% endblock %}

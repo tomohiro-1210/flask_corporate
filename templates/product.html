@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-md-6 mx-auto">
+    <h1>Template Extends Test</h1>
+
+    <!-- jinja2の変数。app.pyで定義した変数が格納されている。 -->
+    <p>{{user_name}}</p> 
+
+    {% for product in products %}
+    <p>{{product}}</p> 
+    {% endfor %}
+
+    <p>{{product_dict}}</p> 
+  </div>
+{% endblock %}

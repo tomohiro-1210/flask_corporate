@@ -1,4 +1,5 @@
-from flask import Flask #flaskクラスをインポート
+from flask import Flask,render_template #flaskクラスをインポート
+# render_templateはページテンプレート関数？
 
 product_list = [
     ["1", "Jupiter Notebook", "Anaconda", "12,000"],
@@ -9,39 +10,34 @@ product_list = [
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-@app.route("/test")
-def hello_test():
-    return "<p>test flask</p>"
-
-@app.route("/index")
 def index():
-    return "<h1>Product Page-製品一覧ページ-</h1>"
+    #↑はHTMLに記述する際に大きく影響されるので、URLと同じ関数にするのが望ましい。
+    user_name = "Slime"
+    return render_template('index.html', user_name=user_name)
 
-@app.route("/product/<product_id>")
-def product(product_id):
-    product_list = [
-        ["1", "Jupiter Notebook", "Anaconda", "12,000"],
-        ["2", "PyCharm", "JetBrains", "22,000"],
-        ["3", "Huawei PC", "Huawei", "45600"],
-    ]
-    for product in product_list:
-        if product_id in product:
-            break
-    id = product[0]
-    product_name = product[1]
-    product_maker = product[2]
-    product_price = product[3]
+@app.route("/product")
+def product():
+    #↑はHTMLに記述する際に大きく影響されるので、URLと同じ関数にするのが望ましい。
+    product_list = ["ミミック貯金箱","メタルスライムぬいぐるみ","メタルキングフィギュア"]
+    product_dict = {"product_name":"ミミック貯金箱", "product_price":"3500", "product_maer":"スクエアエニックス"}
 
-    return "<p>製品番号:{3}<br>製品名：{0}<br>メーカー:{1}<br>製品価格:{2}</p>".format(product_name, product_maker, product_price, id)
+    return render_template("product.html",products=product_list, product_dict=product_dict)
 
+#userページ
+@app.route("/user")
+def user():
+    user_list = [
+        ["1","山田　太郎", "taro@test.com", "1"],
+        ["2","鈴木　花子", "hanako@test.com", "0"],
+        ["3","清水　義孝", "yoshitaka@test.com", "0"],
+    ],
 
-# 動的なルーティング
-@app.route("/user/<user_id>") #user_idが関数から引っ張ることができる。
-def user_id(user_id):
-    return "<h1>User ID: {0} {1} {2}</h1>".format(user_id[0],user_id[1],user_id[2])
+    return render_template("user.html", user_list=user_list,)
+
+# 404ページの設定
+@app.errorhandler(404)
+def error_404(error):
+    return render_template('error_pages/404.html'), 404
 
 
 
